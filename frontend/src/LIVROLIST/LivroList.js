@@ -1,6 +1,30 @@
 import React, { useState } from 'react';
 import './LivroList.css';
 
+function formatDate(dateStr) {
+  if (!dateStr) return '°';
+
+  if (/\d{2}\/\d{2}\/\d{4}/.test(dateStr)) return dateStr;
+
+  const onlyDate = dateStr.split('T')[0];
+
+  const ymd = onlyDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (ymd) {
+    const [, year, month, day] = ymd;
+    return `${day}/${month}/${year}`;
+  }
+
+  const d = new Date(dateStr);
+  if (!isNaN(d.getTime())) {
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  return dateStr;
+}
+
 function LivroList({ livros, onAtualizar, onEditar }) {
   const [buscaId, setBuscaId] = useState('');
 
@@ -47,16 +71,16 @@ function LivroList({ livros, onAtualizar, onEditar }) {
               <li><strong>Título:</strong> {livro.titulo}</li>
               <li><strong>Autor:</strong> {livro.autor}</li>
               <li><strong>Editora:</strong> {livro.editora}</li>
-              <li><strong>Categoria:</strong> {livro.categoria || '-'}</li>
+              <li><strong>Categoria:</strong> {livro.categoria || '°'}</li>
               <li><strong>ISBN:</strong> {livro.isbn}</li>
-              <li><strong>Número de páginas:</strong> {livro.numero_paginas || '-'}</li>
-              <li><strong>Lançamento:</strong> {livro.lancamento}</li>
+              <li><strong>Número de páginas:</strong> {livro.numero_paginas || '°'}</li>
+              <li><strong>Lançamento:</strong> {formatDate(livro.lancamento)}</li>
               <li>
                 <strong>Imagem:</strong><br />
                 {livro.imagem ? (
                   <img src={livro.imagem} alt={livro.titulo} style={{ width: '100px' }} />
                 ) : (
-                  '-'
+                  '°'
                 )}
               </li>
             </ul>
