@@ -63,6 +63,8 @@ Após a exclusão, o livro desaparece da lista exibida.
 # :white_circle: Imagens do projeto
 
 <img width="689" height="920" alt="Captura de tela 2025-09-07 003853" src="https://github.com/user-attachments/assets/8b0ff7e4-3d47-4dfe-a4b4-4662486a028c" />
+<img width="1066" height="721" alt="Captura de tela 2025-09-07 134022" src="https://github.com/user-attachments/assets/71938e52-7852-468b-be6b-43867c6c4e1f" />
+
 
 # :bulb: Decisões Tomadas
 
