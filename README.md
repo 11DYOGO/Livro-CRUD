@@ -6,7 +6,7 @@ Na interface há um campo de busca com ícone de lupa para informar o ID: ao bus
 
 # :mag: Escopo do CRUD 
 
-O sistema possibilita realizar as quatro operações fundamentais: 
+O sistema possibilita realizar as cinco operações fundamentais: 
 
 **Criar:** inserir novos livros no catálogo, informando dados como título, autor, ano de lançamento, ISBN, categoria, editora, número de páginas e imagem da capa. 
 
